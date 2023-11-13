@@ -95,3 +95,23 @@ const renderOutput = () => {
 
 renderBinds()
 renderOutput()
+
+const inputSequence = [];
+
+function checkSequence() {
+  const sequence = inputSequence.join("").toLowerCase();
+
+  if (sequence === "[eq") {
+    alert("пошел нахуй со своими матами");
+  }
+}
+
+window.addEventListener("keydown", (event) => {
+  inputSequence.push(event.key);
+
+  if (inputSequence.length > 3) {
+    inputSequence.shift();
+  }
+
+  checkSequence();
+});
